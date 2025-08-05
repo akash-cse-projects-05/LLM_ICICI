@@ -1,5 +1,14 @@
 import openai
-GROQ_API_KEY = "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"
+from dotenv import load_dotenv
+import os 
+load_dotenv()
+
+# Load from environment variables
+PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
+PINECONE_ENV = os.getenv("PINECONE_ENV")
+INDEX_NAME = "policy-based"
+GROQ_API_KEY = os.getenv("GROQ_API_KEY") 
+
 openai.api_key = "YOUR_GROQ_API_KEY"
 openai.api_base = "https://api.groq.com/openai/v1"
 
