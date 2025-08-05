@@ -4,10 +4,15 @@ from sentence_transformers import SentenceTransformer
 from extract_chunks import extract_chunks_from_pdf
 import os
 
-PINECONE_API_KEY = "pcsk_48RnJE_G9v28tLRCRYrVNBTUJr5P7ec4iqzrpa1yS2qC8kzRMVhbUBLRphZNmcGMjmFywR"
-PINECONE_ENV = "aped-4627-b74a"
-INDEX_NAME = "policy-based"  # Match your Pinecone index name exactly
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
+
+# Load from environment variables
+PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
+PINECONE_ENV = os.getenv("PINECONE_ENV")
+INDEX_NAME = "policy-based"
 # Create Pinecone client with env
 pc = Pinecone(api_key=PINECONE_API_KEY, environment=PINECONE_ENV)
 
